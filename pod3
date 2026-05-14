@@ -1,1 +1,807 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Core Process Marketing - Pod 3 US</title>
+  <style>
+    :root {
+      --bg: #f8f7f2;
+      --ink: #151515;
+      --green: #245b0b;
+      --green-2: #36790d;
+      --green-soft: #eef8e7;
+      --teal: #087a68;
+      --teal-soft: #e2f7f1;
+      --blue: #1f6da8;
+      --blue-soft: #e8f3ff;
+      --gold: #9b5a04;
+      --gold-soft: #fff1da;
+      --violet: #5a4bc4;
+      --violet-soft: #f0edff;
+    }
 
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #e7e3da;
+      color: var(--ink);
+      font-family: "Segoe UI", Arial, "Helvetica Neue", sans-serif;
+      line-height: 1.45;
+    }
+
+    .sheet {
+      width: 1600px;
+      margin: 0 auto;
+      background: var(--bg);
+      padding: 42px 42px 56px;
+    }
+
+    .hero {
+      background: #174f13;
+      color: #fff;
+      padding: 54px 58px 44px;
+      border-bottom: 8px solid #dbe9c7;
+    }
+
+    .eyebrow {
+      color: #bfd5ab;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 14px 0 8px;
+      font-size: 48px;
+      line-height: 1.08;
+      font-weight: 750;
+    }
+
+    .hero p {
+      margin: 0;
+      color: #f4f8ef;
+      font-size: 24px;
+      font-weight: 650;
+    }
+
+    .chips {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      border-radius: 7px;
+      padding: 8px 20px;
+      color: #fff;
+      font-size: 19px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .chip.blue { background: var(--blue); }
+    .chip.teal { background: var(--teal); }
+    .chip.gold { background: var(--gold); }
+
+    .summary {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 22px;
+      margin: 38px 0 56px;
+    }
+
+    .summary-card {
+      min-height: 120px;
+      padding: 24px 30px;
+      border-left: 5px solid;
+    }
+
+    .summary-card small {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .summary-card strong {
+      display: block;
+      font-size: 23px;
+      font-weight: 650;
+    }
+
+    .scope { background: var(--blue-soft); border-color: var(--blue); color: #164f7e; }
+    .channel { background: var(--teal-soft); border-color: var(--teal); color: #075d51; }
+    .goal { background: var(--gold-soft); border-color: var(--gold); color: #7a4300; }
+
+    .section {
+      margin-top: 64px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 26px;
+    }
+
+    .section-label {
+      min-width: 300px;
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 6px;
+      padding: 8px 20px;
+      background: var(--teal-soft);
+      color: var(--teal);
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 31px;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    .section.violet .section-label { background: var(--violet-soft); color: var(--violet); }
+    .section.gold .section-label { background: var(--gold-soft); color: var(--gold); }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .stage {
+      border-top: 6px solid var(--teal);
+      padding: 24px 22px 0;
+      min-height: 210px;
+    }
+
+    .section.violet .stage { border-color: var(--violet); }
+    .section.gold .stage { border-color: var(--gold); }
+
+    .num {
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: var(--teal);
+      color: #fff;
+      font-size: 21px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .section.violet .num { background: var(--violet); }
+    .section.gold .num { background: var(--gold); }
+
+    .stage h3,
+    .card h3 {
+      margin: 0 0 14px;
+      font-size: 21px;
+      line-height: 1.22;
+      font-weight: 750;
+    }
+
+    .stage p {
+      margin: 0;
+      color: #222;
+      font-size: 17px;
+    }
+
+    .band {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      min-height: 78px;
+      margin: 34px 0 20px;
+      padding: 14px 24px;
+      background: var(--green-soft);
+    }
+
+    .band.brand { background: var(--gold-soft); }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      flex: 0 0 52px;
+      border-radius: 10px;
+      background: var(--green-2);
+    }
+
+    .band.brand .icon { background: var(--gold); }
+
+    .band-title {
+      color: var(--green-2);
+      font-size: 23px;
+      line-height: 1.08;
+      font-weight: 700;
+    }
+
+    .band.brand .band-title { color: var(--gold); }
+
+    .band-title span {
+      display: block;
+      color: #171717;
+      font-size: 17px;
+      font-weight: 500;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+      margin-bottom: 52px;
+    }
+
+    .card {
+      min-height: 300px;
+      padding: 24px 22px 18px 28px;
+      border-left: 5px solid var(--green-2);
+    }
+
+    .brand-cards .card { border-color: var(--gold); }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+      font-size: 17px;
+    }
+
+    li {
+      margin: 0 0 13px;
+      padding-left: 4px;
+    }
+
+    li::marker {
+      color: var(--green-2);
+      font-size: 1.1em;
+    }
+
+    .brand-cards li::marker,
+    .gold li::marker { color: var(--gold); }
+
+    .kpis {
+      margin: 14px 0 78px;
+    }
+
+    .kpis h3 {
+      margin: 0 0 16px;
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    .kpi-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .kpi {
+      min-height: 35px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 7px 18px;
+      background: var(--teal-soft);
+      color: var(--teal);
+      font-size: 17px;
+      white-space: nowrap;
+    }
+
+    .kpi.violet { background: var(--violet-soft); color: var(--violet); }
+    .kpi.gold { background: var(--gold-soft); color: var(--gold); }
+
+    .cross {
+      margin-top: 72px;
+    }
+
+    .cross-head {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 24px;
+    }
+
+    .cross-label {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 6px;
+      padding: 8px 22px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .cross h2 {
+      margin: 0;
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    .cross-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .cross-title {
+      min-height: 62px;
+      display: flex;
+      align-items: center;
+      border-radius: 5px;
+      padding: 14px 24px;
+      color: #fff;
+      font-size: 21px;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .ops .cross-title { background: var(--blue); }
+    .sale .cross-title { background: var(--green-2); }
+    .finance .cross-title { background: var(--gold); }
+
+    .ops li::marker { color: var(--blue); }
+    .sale li::marker { color: var(--green-2); }
+    .finance li::marker { color: var(--gold); }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <header class="hero">
+      <div class="eyebrow">Marketing · Pod 3 · US market</div>
+      <h1>Core process Pod 3 — Expatkit.vn</h1>
+      <p>Thị trường nước ngoài US: tăng trưởng bằng SEO authority, trust, community và partner monetization</p>
+      <div class="chips">
+        <span class="chip blue">Market — US expat</span>
+        <span class="chip teal">Team — SEO</span>
+        <span class="chip gold">Team — Brand & Partnership</span>
+      </div>
+    </header>
+
+    <section class="summary">
+      <div class="summary-card scope">
+        <small>Tính chất thị trường</small>
+        <strong>High-trust content market, cạnh tranh SEO cao, user cần thông tin đáng tin cậy</strong>
+      </div>
+      <div class="summary-card channel">
+        <small>Growth engine</small>
+        <strong>Organic search · Newsletter · Community · Partner ecosystem</strong>
+      </div>
+      <div class="summary-card goal">
+        <small>Mục tiêu vận hành</small>
+        <strong>Tăng US organic traffic, subscriber, partner lead và revenue attribution</strong>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div class="section-label">Process 01 — Acquire US User</div>
+        <h2>Thu hút user US bằng search intent, topical authority và content có độ tin cậy cao</h2>
+      </div>
+
+      <div class="flow">
+        <article class="stage">
+          <div class="num">01</div>
+          <h3>US audience & intent research</h3>
+          <p>Map nhóm expat theo relocation stage, city, visa/job/housing need và search intent.</p>
+        </article>
+        <article class="stage">
+          <div class="num">02</div>
+          <h3>Topic cluster strategy</h3>
+          <p>Thiết kế pillar page và supporting content cho relocation, housing, jobs, finance, legal, local life.</p>
+        </article>
+        <article class="stage">
+          <div class="num">03</div>
+          <h3>Content production</h3>
+          <p>Brief, write, native-English edit, fact-check nguồn US và review claim nhạy cảm.</p>
+        </article>
+        <article class="stage">
+          <div class="num">04</div>
+          <h3>Distribution</h3>
+          <p>Đẩy qua organic search, social, Reddit/Facebook community, newsletter, partner mention.</p>
+        </article>
+        <article class="stage">
+          <div class="num">05</div>
+          <h3>Subscriber conversion</h3>
+          <p>Chuyển traffic thành subscriber, checklist download, account, inquiry hoặc lead form.</p>
+        </article>
+      </div>
+
+      <div class="band">
+        <div class="icon"></div>
+        <div class="band-title">SEO Team — Acquire US user<span>Xây topical authority và organic growth cho thị trường US</span></div>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Keyword & SERP research</h3>
+          <ul>
+            <li>Research theo city, immigration stage, housing, jobs, cost of living.</li>
+            <li>Phân loại SERP: guide, listicle, comparison, calculator, local directory.</li>
+            <li>Ưu tiên keyword có intent và khả năng chuyển đổi.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Topical authority</h3>
+          <ul>
+            <li>Pillar page: moving to US, city guide, housing guide, banking/tax basics.</li>
+            <li>Supporting article nối vào pillar bằng internal linking có chủ đích.</li>
+            <li>Build EEAT: author bio, source, expert quote, update date.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Technical SEO</h3>
+          <ul>
+            <li>Schema, sitemap, canonical, crawl/index control, Core Web Vitals.</li>
+            <li>FAQ schema cho bài hướng dẫn và comparison.</li>
+            <li>Phối hợp Engineering xử lý page speed và template issue.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Editorial operation</h3>
+          <ul>
+            <li>Content brief chuẩn: intent, outline, source, CTA, internal links.</li>
+            <li>Native-English editing để tránh content nghe như dịch máy.</li>
+            <li>Content refresh theo thay đổi chính sách, giá, mùa vụ.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Organic conversion</h3>
+          <ul>
+            <li>Gắn CTA theo intent: newsletter, checklist, partner inquiry, consultation.</li>
+            <li>Test CTA placement, lead magnet và form length.</li>
+            <li>Báo cáo traffic-to-subscriber và traffic-to-lead.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="band brand">
+        <div class="icon"></div>
+        <div class="band-title">Brand Team — Acquire US user<span>Tạo trust signal, social proof và phân phối nội dung qua cộng đồng</span></div>
+      </div>
+
+      <div class="cards brand-cards">
+        <article class="card">
+          <h3>Positioning & message</h3>
+          <ul>
+            <li>Định vị Expatkit là trusted guide cho expat/newcomer tại US.</li>
+            <li>Xây messaging house: clarity, trust, practical help, local context.</li>
+            <li>Chuẩn hóa tone of voice tiếng Anh.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Trust asset</h3>
+          <ul>
+            <li>Tạo checklist, guide, explainer, expert quote, testimonial.</li>
+            <li>Tránh claim quá đà với chủ đề visa, legal, tax, finance.</li>
+            <li>Thiết kế visual/landing có cảm giác đáng tin.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Community distribution</h3>
+          <ul>
+            <li>Phân phối qua Reddit, Facebook group, LinkedIn, newsletter.</li>
+            <li>Không spam link; ưu tiên trả lời hữu ích và xây presence.</li>
+            <li>Thu thập câu hỏi thật để đưa lại vào content plan.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Creator & expert collaboration</h3>
+          <ul>
+            <li>Hợp tác expat creator, relocation expert, realtor, recruiter, finance advisor.</li>
+            <li>Co-create guide, webinar, short video, interview.</li>
+            <li>Tận dụng expert quote để tăng trust và PR.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Brand performance</h3>
+          <ul>
+            <li>Đo direct traffic, branded search, subscriber, social engagement.</li>
+            <li>Đo content share, community mention và referral source.</li>
+            <li>Review message theo phản hồi user US.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="kpis">
+        <h3>KPIs — Acquire US User</h3>
+        <div class="kpi-list">
+          <span class="kpi">US organic traffic</span>
+          <span class="kpi">Keyword top 3/top 10</span>
+          <span class="kpi">Subscriber conversion</span>
+          <span class="kpi">Branded search</span>
+          <span class="kpi">Community referral</span>
+          <span class="kpi">Content assisted lead</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section violet">
+      <div class="section-head">
+        <div class="section-label">Process 02 — Engage & Build Trust</div>
+        <h2>Giữ chân user bằng nội dung hữu ích, newsletter, community và trust loop</h2>
+      </div>
+
+      <div class="flow">
+        <article class="stage">
+          <div class="num">01</div>
+          <h3>Onboarding by relocation stage</h3>
+          <p>Phân loại user theo planning, moving soon, arrived, settling in để gửi nội dung đúng lúc.</p>
+        </article>
+        <article class="stage">
+          <div class="num">02</div>
+          <h3>Newsletter & content loop</h3>
+          <p>Gửi city update, checklist, local guide, cost update, partner offer theo segment.</p>
+        </article>
+        <article class="stage">
+          <div class="num">03</div>
+          <h3>Community engagement</h3>
+          <p>Tương tác trong community, thu thập câu hỏi, tạo nội dung từ real user pain points.</p>
+        </article>
+        <article class="stage">
+          <div class="num">04</div>
+          <h3>Trust reinforcement</h3>
+          <p>Cập nhật nguồn, expert review, user story, transparent disclosure cho nội dung thương mại.</p>
+        </article>
+        <article class="stage">
+          <div class="num">05</div>
+          <h3>Return visit & referral</h3>
+          <p>Kéo user quay lại bằng update định kỳ, checklist progress, referral và recommendation.</p>
+        </article>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Segmented lifecycle</h3>
+          <ul>
+            <li>Segment theo timeline: 6 tháng trước khi đi, 1 tháng trước khi đi, mới tới US, đã ổn định.</li>
+            <li>Nội dung khác nhau cho student, worker, family, entrepreneur.</li>
+            <li>Đo repeat visit và email engagement theo segment.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Newsletter system</h3>
+          <ul>
+            <li>Welcome series, city digest, weekly practical guide, partner offer.</li>
+            <li>Personalize theo city và topic preference.</li>
+            <li>Kiểm soát open rate, CTR, unsubscribe và spam complaint.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Community insight loop</h3>
+          <ul>
+            <li>Ghi nhận câu hỏi lặp lại từ Reddit/Facebook/LinkedIn.</li>
+            <li>Chuyển câu hỏi thành FAQ, guide, comparison, checklist.</li>
+            <li>Đưa link trả lời quay lại community một cách hữu ích.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Content trust maintenance</h3>
+          <ul>
+            <li>Lịch review nội dung nhạy cảm: visa, legal, tax, healthcare, insurance.</li>
+            <li>Gắn source, update date, disclaimer khi cần.</li>
+            <li>Loại bỏ hoặc sửa nội dung outdated.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Referral & user story</h3>
+          <ul>
+            <li>Thu thập story từ người đã relocate thành công.</li>
+            <li>Tạo testimonial, case study, social proof.</li>
+            <li>Khuyến khích giới thiệu qua checklist hoặc newsletter.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="kpis">
+        <h3>KPIs — Engage & Build Trust</h3>
+        <div class="kpi-list">
+          <span class="kpi violet">Newsletter open rate</span>
+          <span class="kpi violet">Newsletter CTR</span>
+          <span class="kpi violet">Repeat visit</span>
+          <span class="kpi violet">Community mentions</span>
+          <span class="kpi violet">Content freshness</span>
+          <span class="kpi violet">Referral traffic</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gold">
+      <div class="section-head">
+        <div class="section-label">Process 03 — Monetize US</div>
+        <h2>Tạo doanh thu qua partner lead, sponsored content, affiliate và newsletter sponsorship</h2>
+      </div>
+
+      <div class="flow">
+        <article class="stage">
+          <div class="num">01</div>
+          <h3>Commercial model</h3>
+          <p>Xác định mô hình: partner lead, affiliate, sponsored guide, directory, newsletter placement.</p>
+        </article>
+        <article class="stage">
+          <div class="num">02</div>
+          <h3>Partner qualification</h3>
+          <p>Chọn partner housing, relocation, insurance, banking, legal, tax, job service có uy tín.</p>
+        </article>
+        <article class="stage">
+          <div class="num">03</div>
+          <h3>Commercial content</h3>
+          <p>Tạo comparison, advertorial, sponsored guide, webinar, email package với disclosure rõ.</p>
+        </article>
+        <article class="stage">
+          <div class="num">04</div>
+          <h3>Lead capture & handoff</h3>
+          <p>Gắn form, tracking, consent, scoring và bàn giao lead sang Sale/Partnership.</p>
+        </article>
+        <article class="stage">
+          <div class="num">05</div>
+          <h3>Revenue optimization</h3>
+          <p>Theo dõi revenue by partner, topic, city, CTA, source và tối ưu package.</p>
+        </article>
+      </div>
+
+      <div class="band">
+        <div class="icon"></div>
+        <div class="band-title">SEO Team — Monetize from organic<span>Biến topic có commercial intent thành lead/revenue mà không làm giảm trust</span></div>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Commercial intent map</h3>
+          <ul>
+            <li>Ưu tiên housing, moving, insurance, banking, tax, legal, job placement.</li>
+            <li>Map keyword với partner category và funnel stage.</li>
+            <li>Tách rõ informational page và money page.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Comparison pages</h3>
+          <ul>
+            <li>So sánh dịch vụ, checklist, directory, best options by city.</li>
+            <li>Gắn disclosure và editorial standard.</li>
+            <li>Test CTA: book call, get quote, download checklist.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Lead magnet</h3>
+          <ul>
+            <li>Relocation checklist, cost calculator, city starter pack.</li>
+            <li>Capture email, city, timeline, need category.</li>
+            <li>Nurture tới partner offer phù hợp.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Attribution</h3>
+          <ul>
+            <li>Theo dõi page, topic cluster, source, CTA, partner id.</li>
+            <li>Gắn UTM và event cho lead, clickout, form submit.</li>
+            <li>Báo cáo conversion theo content asset.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Content ROI</h3>
+          <ul>
+            <li>Xếp hạng topic theo traffic, lead, revenue, conversion.</li>
+            <li>Refresh page có ranking cao nhưng lead thấp.</li>
+            <li>Mở rộng city/topic có partner ROI tốt.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="band brand">
+        <div class="icon"></div>
+        <div class="band-title">Brand & Partnership Team — Monetize US<span>Xây thương mại dựa trên trust, partner fit và package bán được</span></div>
+      </div>
+
+      <div class="cards brand-cards">
+        <article class="card">
+          <h3>Partner proposition</h3>
+          <ul>
+            <li>Media kit: audience, intent, topic authority, newsletter, lead quality.</li>
+            <li>Rate card cho sponsored content, lead package, newsletter placement.</li>
+            <li>Chọn partner phù hợp với niềm tin của user.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Commercial guideline</h3>
+          <ul>
+            <li>Disclosure rõ với sponsored/affiliate content.</li>
+            <li>Không bán package làm giảm credibility của Expatkit</li>
+            <li>Kiểm duyệt claim của partner trước khi publish.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Partner campaign</h3>
+          <ul>
+            <li>Co-marketing: webinar, city guide, checklist, expert Q&A.</li>
+            <li>Campaign theo relocation season hoặc city demand.</li>
+            <li>Tạo case study khi campaign có kết quả tốt.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Sales enablement</h3>
+          <ul>
+            <li>Cung cấp segment, source, content context cho Sale/Partnership.</li>
+            <li>Review objection và feedback từ partner.</li>
+            <li>Cải thiện offer, CTA, landing page và package.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Revenue experiment</h3>
+          <ul>
+            <li>Test affiliate, sponsored guide, newsletter sponsor, directory listing.</li>
+            <li>Đo revenue per partner, renewal, repeat booking.</li>
+            <li>Chốt mô hình có biên lợi nhuận và khả năng scale.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="kpis">
+        <h3>KPIs — Monetize US</h3>
+        <div class="kpi-list">
+          <span class="kpi gold">Partner leads</span>
+          <span class="kpi gold">Lead-to-deal rate</span>
+          <span class="kpi gold">Revenue / partner</span>
+          <span class="kpi gold">Affiliate conversion</span>
+          <span class="kpi gold">Newsletter sponsor revenue</span>
+          <span class="kpi gold">Content ROI</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="cross">
+      <div class="cross-head">
+        <div class="cross-label">Liên kết ngang</div>
+        <h2>Pod 3 Marketing ↔ Product/Ops · Sale/Partnership · Finance</h2>
+      </div>
+      <div class="cross-grid">
+        <article class="ops">
+          <div class="cross-title">Product & Engineering</div>
+          <ul>
+            <li>SEO infra, Core Web Vitals, schema, sitemap, content template, form tracking.</li>
+            <li>Newsletter capture, preference center, lead magnet, event tracking.</li>
+            <li>Partner lead form, consent, attribution, dashboard by topic/city/source.</li>
+          </ul>
+        </article>
+        <article class="sale">
+          <div class="cross-title">Sale / Partnership</div>
+          <ul>
+            <li>Tìm và qualify partner US: housing, relocation, legal, finance, job service.</li>
+            <li>Nhận lead, xử lý partner package, báo feedback chất lượng lead.</li>
+            <li>Đồng xây media kit, rate card, co-marketing và case study.</li>
+          </ul>
+        </article>
+        <article class="finance">
+          <div class="cross-title">Finance</div>
+          <ul>
+            <li>Theo dõi cost content, SEO ROI, sponsored revenue, affiliate revenue.</li>
+            <li>Đánh giá revenue attribution theo topic, partner, city, channel.</li>
+            <li>Forecast revenue pipeline, partner retention và ngân sách mở rộng.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
