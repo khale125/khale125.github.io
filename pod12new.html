@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Core Process Marketing - Pod 1 & 2</title>
+  <style>
+    :root {
+      --bg: #f8f7f2;
+      --ink: #151515;
+      --green: #245b0b;
+      --green-2: #36790d;
+      --green-soft: #eef8e7;
+      --teal: #087a68;
+      --teal-soft: #e2f7f1;
+      --blue: #1f6da8;
+      --blue-soft: #e8f3ff;
+      --gold: #9b5a04;
+      --gold-soft: #fff1da;
+      --violet: #5a4bc4;
+      --violet-soft: #f0edff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #e7e3da;
+      color: var(--ink);
+      font-family: "Segoe UI", Arial, "Helvetica Neue", sans-serif;
+      line-height: 1.45;
+    }
+
+    .sheet {
+      width: 1600px;
+      margin: 0 auto;
+      background: var(--bg);
+      padding: 42px 42px 56px;
+    }
+
+    .hero {
+      background: var(--green);
+      color: #fff;
+      padding: 54px 58px 44px;
+      border-bottom: 8px solid #dbe9c7;
+    }
+
+    .eyebrow {
+      color: #bfd5ab;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 14px 0 8px;
+      font-size: 48px;
+      line-height: 1.08;
+      font-weight: 750;
+    }
+
+    .hero p {
+      margin: 0;
+      color: #f4f8ef;
+      font-size: 24px;
+      font-weight: 650;
+    }
+
+    .chips {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      border-radius: 7px;
+      padding: 8px 20px;
+      color: #fff;
+      font-size: 19px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .chip.green { background: #4b8715; }
+    .chip.teal { background: #0c8f78; }
+
+    .summary {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 22px;
+      margin: 38px 0 56px;
+    }
+
+    .summary-card {
+      min-height: 120px;
+      padding: 24px 30px;
+      border-left: 5px solid;
+    }
+
+    .summary-card small {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .summary-card strong {
+      display: block;
+      font-size: 23px;
+      font-weight: 650;
+    }
+
+    .scope { background: var(--green-soft); border-color: var(--green-2); color: var(--green); }
+    .channel { background: var(--teal-soft); border-color: var(--teal); color: #075d51; }
+    .goal { background: var(--gold-soft); border-color: var(--gold); color: #7a4300; }
+
+    .section {
+      margin-top: 64px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 26px;
+    }
+
+    .section-label {
+      min-width: 300px;
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 6px;
+      padding: 8px 20px;
+      background: var(--teal-soft);
+      color: var(--teal);
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+    }
+
+    .section.violet .section-label {
+      background: var(--violet-soft);
+      color: var(--violet);
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 31px;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .stage {
+      border-top: 6px solid var(--teal);
+      padding: 24px 22px 0;
+      min-height: 270px;
+    }
+
+    .section.violet .stage { border-color: var(--violet); }
+
+    .num {
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: var(--teal);
+      color: #fff;
+      font-size: 21px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .section.violet .num { background: var(--violet); }
+
+    .stage h3,
+    .card h3 {
+      margin: 0 0 14px;
+      font-size: 21px;
+      line-height: 1.22;
+      font-weight: 750;
+    }
+
+    .stage p {
+      margin: 0 0 12px;
+      color: #222;
+      font-size: 17px;
+    }
+
+    .stage .detail {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 15px;
+    }
+
+    .stage .detail li {
+      margin-bottom: 8px;
+    }
+
+    .band {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      min-height: 78px;
+      margin: 34px 0 20px;
+      padding: 14px 24px;
+      background: var(--green-soft);
+    }
+
+    .band.brand { background: var(--gold-soft); }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      flex: 0 0 52px;
+      border-radius: 10px;
+      background: var(--green-2);
+    }
+
+    .band.brand .icon { background: var(--gold); }
+
+    .band-title {
+      color: var(--green-2);
+      font-size: 23px;
+      line-height: 1.08;
+      font-weight: 700;
+    }
+
+    .band.brand .band-title { color: var(--gold); }
+
+    .band-title span {
+      display: block;
+      color: #171717;
+      font-size: 17px;
+      font-weight: 500;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+      margin-bottom: 52px;
+    }
+
+    .card {
+      min-height: 300px;
+      padding: 24px 22px 18px 28px;
+      border-left: 5px solid var(--green-2);
+    }
+
+    .brand-cards .card { border-color: var(--gold); }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+      font-size: 17px;
+    }
+
+    li {
+      margin: 0 0 13px;
+      padding-left: 4px;
+    }
+
+    li::marker {
+      color: var(--green-2);
+      font-size: 1.1em;
+    }
+
+    .brand-cards li::marker { color: var(--gold); }
+
+    .kpis {
+      margin: 14px 0 78px;
+    }
+
+    .kpis h3 {
+      margin: 0 0 16px;
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    .kpi-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .kpi {
+      min-height: 35px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 7px 18px;
+      background: var(--teal-soft);
+      color: var(--teal);
+      font-size: 17px;
+      white-space: nowrap;
+    }
+
+    .kpi.violet {
+      background: var(--violet-soft);
+      color: var(--violet);
+    }
+
+    .cross {
+      margin-top: 72px;
+    }
+
+    .cross-head {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 24px;
+    }
+
+    .cross-label {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 6px;
+      padding: 8px 22px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .cross h2 {
+      margin: 0;
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    .cross-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .cross-title {
+      min-height: 62px;
+      display: flex;
+      align-items: center;
+      border-radius: 5px;
+      padding: 14px 24px;
+      color: #fff;
+      font-size: 21px;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .ops .cross-title { background: var(--blue); }
+    .sale .cross-title { background: var(--green-2); }
+    .finance .cross-title { background: var(--gold); }
+
+    .ops li::marker { color: var(--blue); }
+    .sale li::marker { color: var(--green-2); }
+    .finance li::marker { color: var(--gold); }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <header class="hero">
+      <div class="eyebrow">Marketing · Pod 1 & 2 · Vietnam marketplaces</div>
+      <h1>Core process Pod 1 & 2</h1>
+      <p>2 core process chính cho SEO Team và Brand Team: Acquire user · Engage & retain user</p>
+      <div class="chips">
+        <span class="chip green">Pod 1 — Muaban.net · Mogi.vn</span>
+        <span class="chip teal">Pod 2 — Vieclam.net · Oto.net</span>
+      </div>
+    </header>
+
+    <section class="summary">
+      <div class="summary-card scope">
+        <small>Tính chất thị trường</small>
+        <strong>Marketplace nội địa: bất động sản, việc làm, ô tô; cần traffic có intent và supply đủ chất lượng</strong>
+      </div>
+      <div class="summary-card channel">
+        <small>2 team vận hành</small>
+        <strong>SEO Team kéo organic demand · Brand Team kéo paid/social demand và CRM creative</strong>
+      </div>
+      <div class="summary-card goal">
+        <small>2 core process</small>
+        <strong>Acquire user · Engage & retain user</strong>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div class="section-label">Process 01 — Acquire User</div>
+        <h2>Thu hút user mới và chuyển đổi thành hành động đầu tiên có giá trị</h2>
+      </div>
+
+      <div class="flow">
+        <article class="stage">
+          <div class="num">01</div>
+          <h3>Hiểu thị trường & nhóm user cần kéo về</h3>
+          <p><strong>Mục tiêu:</strong> biết chính xác cần thu hút ai, họ đang cần gì và đang tìm kiếm bằng ngôn ngữ nào.</p>
+          <ul class="detail">
+            <li>Chia user theo vai trò: người mua/thuê, người bán/cho thuê, ứng viên, nhà tuyển dụng, người mua xe.</li>
+            <li>Map nhu cầu theo ngành, khu vực, mùa vụ, ngân sách, loại listing/job/xe.</li>
+            <li>Đầu ra: ICP, search intent map, danh sách ưu tiên ngành/khu vực cần tăng trưởng.</li>
+          </ul>
+        </article>
+        <article class="stage">
+          <div class="num">02</div>
+          <h3>Chọn kênh kéo user phù hợp</h3>
+          <p><strong>Mục tiêu:</strong> quyết định dùng SEO, paid, social hay partnership cho từng nhóm user và từng mục tiêu.</p>
+          <ul class="detail">
+            <li>SEO cho nhu cầu có sẵn trên Google: tìm nhà, tìm việc, mua xe, so sánh giá.</li>
+            <li>Paid/social cho chiến dịch ngắn hạn, mùa vụ, khu vực cần tăng nhanh.</li>
+            <li>Đầu ra: channel plan, ngân sách, KPI theo kênh, landing/page cần chuẩn bị.</li>
+          </ul>
+        </article>
+        <article class="stage">
+          <div class="num">03</div>
+          <h3>Chuẩn bị nội dung, landing page & creative</h3>
+          <p><strong>Mục tiêu:</strong> có đủ tài sản để user hiểu lợi ích và thực hiện hành động.</p>
+          <ul class="detail">
+            <li>SEO tạo category page, listing page, guide, market report, comparison content.</li>
+            <li>Brand tạo banner, video, social post, email, landing visual và thông điệp campaign.</li>
+            <li>Đầu ra: page/content/creative sẵn sàng chạy và có tracking đúng.</li>
+          </ul>
+        </article>
+        <article class="stage">
+          <div class="num">04</div>
+          <h3>Triển khai kéo traffic & tối ưu liên tục</h3>
+          <p><strong>Mục tiêu:</strong> đưa đúng user vào đúng trang, sau đó tối ưu dựa trên dữ liệu thực tế.</p>
+          <ul class="detail">
+            <li>SEO publish/index page, tối ưu internal link và theo dõi ranking/CTR.</li>
+            <li>Brand chạy paid/social/retargeting, A/B test audience, creative, offer và bid.</li>
+            <li>Đầu ra: traffic chất lượng, chi phí/kênh rõ ràng, insight để tối ưu tiếp.</li>
+          </ul>
+        </article>
+        <article class="stage">
+          <div class="num">05</div>
+          <h3>Chuyển user thành hành động đầu tiên</h3>
+          <p><strong>Mục tiêu:</strong> không chỉ kéo traffic, mà biến traffic thành giá trị đo được cho business.</p>
+          <ul class="detail">
+            <li>Hành động chính: đăng ký, xem tin, liên hệ, gọi/chat, đăng tin, ứng tuyển, lưu tìm kiếm.</li>
+            <li>Tối ưu form, CTA, onboarding, social proof và giảm friction ở bước chuyển đổi.</li>
+            <li>Đầu ra: first-action rate, lead/application/contact, danh sách issue cần Product/Ops xử lý.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="band">
+        <div class="icon"></div>
+        <div class="band-title">SEO Team — Acquire User<span>Xây dựng organic traffic bền vững từ search intent và marketplace page</span></div>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Keyword & intent mapping</h3>
+          <ul>
+            <li>Muaban/Mogi: mua, bán, thuê, location, giá, loại nhà, pháp lý.</li>
+            <li>Vieclam: ngành nghề, tỉnh thành, lương, ca/kíp, kinh nghiệm.</li>
+            <li>Oto: hãng xe, đời xe, giá, xe cũ/mới, so sánh, chi phí sở hữu.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>On-page & technical SEO</h3>
+          <ul>
+            <li>Tối ưu category page, listing page, title, meta, heading, schema, breadcrumb.</li>
+            <li>Kiểm soát index, canonical, duplicate, thin content, sitemap và crawl budget.</li>
+            <li>Phối hợp Engineering xử lý Core Web Vitals và template issue.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Content hub & editorial</h3>
+          <ul>
+            <li>Xây hub theo ngành: guide mua/thuê nhà, career guide, car review, market report.</li>
+            <li>Lịch editorial theo mùa vụ và nhu cầu tìm kiếm: tuyển dụng sau Tết, thuê nhà nhập học, mua xe cuối năm.</li>
+            <li>Refresh bài có ranking tốt nhưng CTR hoặc conversion thấp.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Programmatic SEO</h3>
+          <ul>
+            <li>Tạo page theo template: category × location × attribute.</li>
+            <li>Ưu tiên page có đủ supply, search volume và khả năng chuyển đổi.</li>
+            <li>Xây internal linking giữa guide, category, listing và location page.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>SEO conversion reporting</h3>
+          <ul>
+            <li>Theo dõi organic session, ranking, CTR, listing view, lead, application.</li>
+            <li>Báo cáo theo vertical, page type, location, device và intent group.</li>
+            <li>Chốt SEO backlog với Product/Ops theo tháng.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="band brand">
+        <div class="icon"></div>
+        <div class="band-title">Brand Team — Acquire User<span>Tạo awareness, kéo paid/social traffic và chuyển đổi user qua creative/campaign</span></div>
+      </div>
+
+      <div class="cards brand-cards">
+        <article class="card">
+          <h3>Brand strategy & messaging</h3>
+          <ul>
+            <li>Định vị message theo từng vertical: BĐS, việc làm, ô tô.</li>
+            <li>Xác định value proposition cho buyer, seller, employer, candidate, car buyer.</li>
+            <li>Đồng bộ claim, CTA và offer với Sale/Product.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Campaign & creative production</h3>
+          <ul>
+            <li>Sản xuất banner, video, social post, landing visual, email creative.</li>
+            <li>Tạo campaign kit theo mùa vụ, khu vực, ngành và nguồn supply đang có.</li>
+            <li>Chuẩn hóa template để triển khai nhanh theo từng pod.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Paid acquisition</h3>
+          <ul>
+            <li>Google Search cho intent cao, social/display cho discovery, retargeting cho warm traffic.</li>
+            <li>A/B test audience, creative, offer, landing page và bid strategy.</li>
+            <li>Kiểm soát CAC/CPL theo pod, ngành và campaign.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Landing page & CRO</h3>
+          <ul>
+            <li>Thiết kế landing page riêng theo campaign, segment và mục tiêu chuyển đổi.</li>
+            <li>Tối ưu form, CTA, social proof, urgency trigger và trust signal.</li>
+            <li>Phối hợp Product giảm friction ở bước đăng ký/liên hệ/ứng tuyển.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Performance reporting</h3>
+          <ul>
+            <li>Báo cáo CAC, CPL, CPA, ROAS, lead quality theo kênh và pod.</li>
+            <li>Đọc insight từ creative, audience, offer để tối ưu ngân sách.</li>
+            <li>Review với Sale/Finance để điều chỉnh campaign.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="kpis">
+        <h3>KPIs — Acquire User</h3>
+        <div class="kpi-list">
+          <span class="kpi">Organic traffic</span>
+          <span class="kpi">New registered users</span>
+          <span class="kpi">Lead / inquiry</span>
+          <span class="kpi">Application / contact rate</span>
+          <span class="kpi">CAC / CPL</span>
+          <span class="kpi">ROAS paid</span>
+          <span class="kpi">First-action rate</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section violet">
+      <div class="section-head">
+        <div class="section-label">Process 02 — Engage & Retain User</div>
+        <h2>Kích hoạt, giữ chân và tăng repeat action của người dùng</h2>
+      </div>
+
+      <div class="flow">
+        <article class="stage">
+          <div class="num">01</div>
+          <h3>Activation & first value</h3>
+          <p>Onboarding 72h đầu để user thấy giá trị: đăng tin, liên hệ, ứng tuyển, lưu tìm kiếm, quay lại xem tin.</p>
+        </article>
+        <article class="stage">
+          <div class="num">02</div>
+          <h3>Personalized content & alerts</h3>
+          <p>Cá nhân hóa nội dung, saved search, listing alert, job alert, price alert theo hành vi.</p>
+        </article>
+        <article class="stage">
+          <div class="num">03</div>
+          <h3>Engagement content loop</h3>
+          <p>Duy trì tần suất truy cập bằng newsletter, market update, guide, tips và nội dung gợi ý.</p>
+        </article>
+        <article class="stage">
+          <div class="num">04</div>
+          <h3>Retention & win-back</h3>
+          <p>Nhận diện inactive/churn signal và kích hoạt lại user bằng nội dung, offer hoặc listing/job phù hợp.</p>
+        </article>
+        <article class="stage">
+          <div class="num">05</div>
+          <h3>Upsell, loyalty & referral</h3>
+          <p>Tăng LTV qua premium package, loyalty, referral, success story và recurring engagement.</p>
+        </article>
+      </div>
+
+      <div class="band">
+        <div class="icon"></div>
+        <div class="band-title">SEO Team — Engage & Retain User<span>Giữ user quay lại bằng content, internal discovery và on-site experience</span></div>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3>On-site personalization</h3>
+          <ul>
+            <li>Gợi ý listing/job/content tương tự dựa trên view, save, search history.</li>
+            <li>Phối hợp Product xây recommendation block và A/B test layout.</li>
+            <li>Tăng pages/session, repeat visit và assisted conversion.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Retention content</h3>
+          <ul>
+            <li>Nội dung cập nhật giá, thị trường, chính sách, lương, xu hướng tuyển dụng, review xe.</li>
+            <li>Internal link dẫn user khám phá sâu hơn vào platform.</li>
+            <li>Refresh content theo biến động thị trường và mùa vụ.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Saved search & alert SEO</h3>
+          <ul>
+            <li>Tối ưu landing sau khi user click alert để tăng khả năng xem tin/liên hệ.</li>
+            <li>Gợi ý saved search theo intent và location.</li>
+            <li>Kiểm soát tần suất alert để giảm unsubscribe.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Churn signal content</h3>
+          <ul>
+            <li>Nhận diện user giảm search, giảm view, không quay lại sau 30/60/90 ngày.</li>
+            <li>Trigger nội dung win-back theo ngành và hành vi cũ.</li>
+            <li>Tối ưu nội dung cho cohort có khả năng quay lại cao.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Profile/listing completion</h3>
+          <ul>
+            <li>Nội dung hướng dẫn hoàn thiện profile, CV, tin đăng, thông tin liên hệ.</li>
+            <li>Progress indicator, checklist, tip giúp tăng chất lượng dữ liệu.</li>
+            <li>Tăng match rate, lead quality và repeat action.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="band brand">
+        <div class="icon"></div>
+        <div class="band-title">Brand Team — Engage & Retain User<span>Giữ chân user qua CRM creative, retargeting, loyalty, upsell và success story</span></div>
+      </div>
+
+      <div class="cards brand-cards">
+        <article class="card">
+          <h3>Onboarding creative</h3>
+          <ul>
+            <li>Welcome email/push/Zalo flow trong 72h đầu.</li>
+            <li>Journey riêng cho buyer, seller, employer, candidate và car buyer.</li>
+            <li>Creative nhấn mạnh next best action và lợi ích gần nhất.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Push & email creative</h3>
+          <ul>
+            <li>Cá nhân hóa theo hành vi: tin mới, job match, giá phù hợp, listing tương tự.</li>
+            <li>Newsletter định kỳ: báo cáo thị trường, insight, tips theo ngành.</li>
+            <li>Test subject line, CTA, format và frequency.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Retargeting & win-back</h3>
+          <ul>
+            <li>Retarget user chưa chuyển đổi hoặc inactive 30/60/90 ngày.</li>
+            <li>Creative theo ngữ cảnh: tin mới, cơ hội mới, offer, social proof.</li>
+            <li>Ưu tiên cohort có intent cao và khả năng quay lại.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Loyalty, referral & upsell</h3>
+          <ul>
+            <li>Thiết kế loyalty, badge, milestone, referral incentive.</li>
+            <li>Upsell creative cho gói premium, boost, featured listing, employer package.</li>
+            <li>Đồng bộ offer với Sale để tăng conversion.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>NPS & success story</h3>
+          <ul>
+            <li>Thu thập NPS, testimonial, case study từ user/seller/employer thành công.</li>
+            <li>Biến success story thành social proof cho CRM và campaign.</li>
+            <li>Dùng insight phản hồi để cải thiện message và trải nghiệm.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="kpis">
+        <h3>KPIs — Engage & Retain User</h3>
+        <div class="kpi-list">
+          <span class="kpi violet">DAU/MAU ratio</span>
+          <span class="kpi violet">30-day retention</span>
+          <span class="kpi violet">Repeat visit</span>
+          <span class="kpi violet">Email/push CTR</span>
+          <span class="kpi violet">Saved search usage</span>
+          <span class="kpi violet">Churn rate</span>
+          <span class="kpi violet">LTV / cohort</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="cross">
+      <div class="cross-head">
+        <div class="cross-label">Liên kết ngang</div>
+        <h2>Marketing ↔ Ops · Sale · Finance</h2>
+      </div>
+      <div class="cross-grid">
+        <article class="ops">
+          <div class="cross-title">Ops — Product & Engineering</div>
+          <ul>
+            <li>Tracking, SEO infrastructure, schema, sitemap, Core Web Vitals và page template.</li>
+            <li>Saved search, alert engine, recommendation, CRM trigger và churn signal.</li>
+            <li>Listing/job/user data feed để Marketing cá nhân hóa content và targeting.</li>
+          </ul>
+        </article>
+        <article class="sale">
+          <div class="cross-title">Sale</div>
+          <ul>
+            <li>Nhận lead từ Marketing, chăm sóc seller/employer/customer và phản hồi chất lượng lead.</li>
+            <li>Input nhu cầu thị trường, mùa cao điểm, objection và package cần đẩy.</li>
+            <li>Phối hợp upsell creative cho premium package, boost và recurring deal.</li>
+          </ul>
+        </article>
+        <article class="finance">
+          <div class="cross-title">Finance</div>
+          <ul>
+            <li>Duyệt ngân sách theo pod, channel, campaign và mùa vụ.</li>
+            <li>Theo dõi CAC, CPL, CPA, ROAS, retention cost và LTV theo cohort.</li>
+            <li>So sánh acquisition vs retention để tối ưu phân bổ ngân sách.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
